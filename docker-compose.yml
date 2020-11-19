@@ -1,0 +1,18 @@
+---
+version: '2'                                              # Portainer Compatible
+services:
+  komga:
+    image: gotson/komga
+    container_name: komga
+    volumes:
+      - /path/to/komga/config/directory:/config           # Path for komga configuration file
+      - /path/to/komga/data/directory:/books              # Path for the data; books.
+    ports:
+      - 8080:8080                                         # Ports where komga will be accesible. HOST-PORT:CONTAINER-POST
+    environment:
+      - PUID=1000                                         
+      - PGID=1000                                         
+      - JAVA_TOOL_OPTIONS=-Xmx4g                          # Increase Java memory Limit
+      - TZ=America/Toronto                                # Timezone
+      - SERVER_SERVLET_CONTEXT_PATH=/komga                # Base url for for Reverse Proxy
+    restart: unless-stopped
