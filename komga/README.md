@@ -8,7 +8,7 @@ This repo contains docker compose file for komga dockerization with portainer co
 Follow the instructions below to setup your komga docker container.
 
  1. Download docker compose to you preferred directory
-	 > wget https://raw.githubusercontent.com/MasroorATB/komga-docker/main/docker-compose.yml
+	 > wget https://raw.githubusercontent.com/MasroorATB/docker-compose-collection/main/komga/docker-compose.yml
 
  2. Run docker-compose
 	 > docker-compose up -d
