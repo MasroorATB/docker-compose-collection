@@ -1,6 +1,6 @@
 # komga-docker
 
-This repo contains docker compose file for komga dockerization.
+This repo contains docker compose file for komga dockerization with portainer compatibility.
 
 
 ## Instructions 
