@@ -5,7 +5,7 @@ This repo contains docker compose file for wg-easy dockerization with portainer 
 
 ## Instructions 
 
-Follow the instructions below to setup your komga docker container.
+Follow the instructions below to setup your wg-easy docker container.
 
  1. Download docker compose to you preferred directory
 	 > wget https://raw.githubusercontent.com/MasroorATB/docker-compose-collection/main/wg-easy/docker-compose.yml
