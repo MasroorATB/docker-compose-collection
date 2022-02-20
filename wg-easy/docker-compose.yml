@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  wg-easy:
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+
+      # ⚠️ Required:
+      # Change this to your host's public IP address or hostname
+      - WG_HOST=10.10.10.10
+
+      # Optional:
+      - PASSWORD=RANDOM-PassPhrase-To-Secure-Your-InterFace0                # Web User interface password if enabled
+      - WG_PORT=51820                                                       # Web User interface PORT
+      - WG_DEFAULT_ADDRESS=10.30.33.x                                       # Default IP address range to use for
+      - WG_DEFAULT_DNS=45.90.28.138,45.90.30.138                            # DNS server(s) to be used by clients
+
+      - WG_PERSISTENT_KEEPALIVE=0                                           # In SECONDS to see if link broken and keep the connection alive
+
+
+    image: weejewel/wg-easy
+    container_name: wg-easy
+    volumes:
+      - /home/masroor/docker/wg-Easy/wireguard:/etc/wireguard               # Path for configuration files
+    ports:
+      - "51820:51820/udp"                                                   # VPN Port
+      - "51821:51821/tcp"                                                   # Web User interface to generate clients
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1                                               # Remove this in case of connection to VPN but no internet or any other traffic (Possible problem)
+      - net.ipv4.conf.all.src_valid_mark=1
